@@ -1,6 +1,7 @@
 <template>
   <tr class="item"><td>{{id}}</td><td>{{title}}</td><td>{{content}}</td><td><button @click="handelEdit">修改</button><button @click="handelDelete">删除</button></td></tr>
 </template>
+
 <script>
 export default {
   props: ['title', 'index', 'id', 'content'],
