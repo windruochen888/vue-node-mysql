@@ -1,5 +1,7 @@
 <template>
-  <div @click="handelParent">子组件调用父组件方法</div>
+<div>
+   <!-- <div @click="handelParent">子组件调用父组件方法</div> -->
+</div>
 </template>
 
 <script>
