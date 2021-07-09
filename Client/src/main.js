@@ -1,16 +1,12 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import TodoList from './TodoList'
-import Alert from './components/modules/alert/index'
+import App from './App.vue'
+import router from './router'
 import axios from 'axios'
-
+import Alert from './components/modules/alert/index'
 Vue.config.productionTip = false
-Vue.use(Alert)
 Vue.prototype.axios = axios
-/* eslint-disable no-new */
+Vue.use(Alert)
 new Vue({
-  el: '#app',
-  components: { TodoList },
-  template: '<TodoList/>'
-})
+  router,
+  render: h => h(App)
+}).$mount('#app')

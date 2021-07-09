@@ -18,7 +18,7 @@ var server = http.createServer(
             database: 'myblog'
         })
         con.connect()
-        function exec(sql) {
+        function exec (sql) {
             return new Promise(function (resolve, reject) {
                 con.query(sql, function (err, result) {
                     if (err) {
@@ -32,7 +32,7 @@ var server = http.createServer(
 
         //查询
         if (method === "GET" && path === "/api/list") {
-            var sql = `select * from users where 1=1`
+            var sql = `select * from blog where 1=1`
             var title = query.title || ''
             var content = query.content || ''
             if (title) {
@@ -49,7 +49,7 @@ var server = http.createServer(
         //详情
         if (method === "GET" && path === "/api/detail") {
 
-            var sql = `select * from users where 1=1`
+            var sql = `select * from blog where 1=1`
             var id = query.id || ''
             if (id) {
                 sql += `  and id='${id}'`
@@ -70,7 +70,7 @@ var server = http.createServer(
             req.on('end', function () {
                 var title = JSON.parse(postData).title
                 var content = JSON.parse(postData).content
-                var sql = `insert into users (title,content) values('${title}','${content}');`
+                var sql = `insert into blog (title,content) values('${title}','${content}');`
                 exec(sql).then(function (result) {
                     res.end(JSON.stringify({ responseCode: 0, responseMsg: "成功" }))
                 })
@@ -88,7 +88,7 @@ var server = http.createServer(
                 var title = JSON.parse(postData).title
                 var content = JSON.parse(postData).content
                 var id = JSON.parse(postData).id
-                var sql = `update users set title='${title}' , content='${content}' where id='${id}';`
+                var sql = `update blog set title='${title}' , content='${content}' where id='${id}';`
                 exec(sql).then(function (result) {
                     res.end(JSON.stringify({ responseCode: 0, responseMsg: "成功" }))
                 })
@@ -104,7 +104,7 @@ var server = http.createServer(
             //获取完所有数据后执行req.on（‘end’,function(){}）
             req.on('end', function () {
                 var id = JSON.parse(postData).id
-                var sql = `delete from users where id='${id}';`
+                var sql = `delete from blog where id='${id}';`
                 exec(sql).then(function (result) {
                     res.end(JSON.stringify({ responseCode: 0, responseMsg: "成功" }))
                 })
@@ -115,7 +115,7 @@ var server = http.createServer(
     }
 
 )
-server.listen(PORT,function(req,res){
-   console.log(`http server running at http://localhost:'${PORT}'`)
+server.listen(PORT, function (req, res) {
+    console.log(`http server running at http://localhost:'${PORT}'`)
 })
 
