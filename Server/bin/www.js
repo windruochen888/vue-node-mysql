@@ -29,7 +29,6 @@ var server = http.createServer(
                 })
             })
         }
-
         //查询
         if (method === "GET" && path === "/api/list") {
             var sql = `select * from blog where 1=1`

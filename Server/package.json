@@ -5,7 +5,7 @@
   "main": "./bin/www.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev nodemon ./bin/www.js",
-    "prd": "cross-env NODE_ENV=prd nodemon ./bin/www.js"
+    "prd": "cross-env NODE_ENV=prduction pm2 start pm2.config.json"
   },
   "repository": {
     "type": "git",
