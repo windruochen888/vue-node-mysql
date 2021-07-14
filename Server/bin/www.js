@@ -6,6 +6,7 @@ var server = http.createServer(
     // serverHandel
     function (req, res) {
         res.setHeader('Content-type', 'application/json')
+        // res.header("Access-Control-Allow-Origin", "*")//允许跨域
         var method = req.method
         var url = req.url
         var path = url.split('?')[0]
